@@ -8,6 +8,41 @@ class DiscountTypeBuyXGetYFree
     }
     
     public function applyDiscount(object $discount, array $order, array $products, object $customer){
+        
+        // Has the customer purchased enough items?
+        foreach($order['items'] as $item){
+            
+            // Can we find the product in the database?
+            if(array_search($item['product-id'], array_column($products, 'id'))===false)continue;
+            else $activeProduct = $products[array_search($item['product-id'], array_column($products, 'id'))];
+                
+            // Is the Discount Category ID Valid for this item?
+            if($discount->CategoryID != $activeProduct->category)continue;
+
+            // Is the Discount Product ID Valid for this item? (-1 = Any Product in Category)
+            if($discount->ProductID !=-1 && $discount->ProductID != $activeProduct->id)continue;
+
+            // Has the quantity minimum been met?
+            if($discount->criteriaQty>$item['quantity'])continue;
+
+            // If we've got to this stage the discount is valid! Let's apply it.
+
+            // Do we allow multiples?
+            if($discount->multiples==true){
+                $totalFreeItems = floor($item['quantity']/$discount->criteriaQty);
+            }else $totalFreeItems = 1;
+
+            $order['items'][] = array(
+                "product-id"  =>    $item['product-id'],
+                "quantity"    =>    "$totalFreeItems",
+                "unit-price"  =>    "0.00",
+                "total"       =>    "0.00",
+            );
+            
+            $order['discountApplied'][] = $discount->name." (Added $totalFreeItems Free)";
+
+        }
+
         return $order;
     }
 
