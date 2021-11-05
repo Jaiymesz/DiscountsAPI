@@ -31,5 +31,14 @@ class Discounts
     private function loadCustomers(){
         $this->customers = json_decode(file_get_contents('https://raw.githubusercontent.com/teamleadercrm/coding-test/master/data/products.json'));
     }
-
+    
+    private function newDiscountType(string $type){
+        if(file_exists(__DIR__."/discountTypes/".preg_replace("/[^a-zA-Z0-9\s]/", "",$type).".class.php")){
+            include_once(__DIR__."/discountTypes/".preg_replace("/[^a-zA-Z0-9\s]/", "",$type).".class.php");
+            $className = "DiscountType".$type;
+            return new $className;
+        }else{
+            return false;
+        }
+    }
 }
