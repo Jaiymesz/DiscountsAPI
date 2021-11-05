@@ -16,11 +16,11 @@ class DiscountTypeCustomerTotal
             if($discount->discountType=="%"){
                 $order['discountAmount'] = round($order['total'] * ($discount->discountValue/100),2);
                 $order['total'] -= $order['discountAmount'];
-                $order['discountApplied'][] = $discount->name;
+                $order['discountsApplied'][] = $discount->name;
             }else if($discount->discountType=="€"){
                 $order['discountAmount'] = $discount->discountValue;
                 $order['total'] -= $discount->discountValue;
-                $order['discountApplied'][] = $discount->name;
+                $order['discountsApplied'][] = $discount->name;
             }
             
         }
