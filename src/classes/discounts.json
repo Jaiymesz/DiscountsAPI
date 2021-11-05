@@ -1,6 +1,6 @@
 [
     {
-      "name": "Customer Loyalty Discount",
+      "name": "10% Customer Loyalty Discount",
       "description": "A customer who has already bought for over € 1000, gets a discount of 10% on the whole order.",
       "expiration": "2021-12-01",
       "type": "CustomerTotal",

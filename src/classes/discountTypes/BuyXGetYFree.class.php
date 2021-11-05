@@ -7,7 +7,7 @@ class DiscountTypeBuyXGetYFree
     
     }
     
-    public function applyDiscount(object $discount, array $order){
+    public function applyDiscount(object $discount, array $order, array $products, object $customer){
         return $order;
     }
 
