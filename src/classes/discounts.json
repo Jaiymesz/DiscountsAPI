@@ -1,0 +1,26 @@
+[
+    {
+      "type": "CustomerTotal",
+      "total": 1000,
+      "discountType": "%",
+      "discountValue": 10
+    },
+    {
+      "type": "BuyXGetYFree",
+      "CategoryID": 2,
+      "ProductID": -1,
+      "criteriaQty": 5,
+      "multiples": true,
+      "totalFree": 1
+    },
+    {
+      "type": "MultiItem",
+      "CategoryID": 1,
+      "ProductID": -1,
+      "criteriaQty": 2,
+      "multiples": false,
+      "discountType": "%",
+      "discountValue": 20,
+      "discountApply": "CheapestItem"
+    }
+  ]
