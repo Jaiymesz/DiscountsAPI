@@ -34,6 +34,9 @@ class Discounts
         // Define Discount Variables for Response
         $this->newOrder['discount-amount'] = 0;
         $this->newOrder['discounts-applied'] = array();
+
+        // Clean Shopping Cart - Security and General Tidyness
+        $this->newOrder = $this->recalculateCart($this->newOrder, $this->products);
         
         foreach ($this->discounts as $discount){
 
@@ -55,6 +58,36 @@ class Discounts
         // Send back the order with applied discounts
         return $this->newOrder;
 
+    }
+
+    private function recalculateCart(Array $cartData, array $products){
+
+        $newItems = array();
+        $newTotal = 0;
+        $activeProduct = array();
+        // Go through each item in the order to ensure data accuracy
+        foreach($cartData['items'] as $item){
+            
+            // Can we find the product in the database?
+            if(array_search($item['product-id'], array_column($products, 'id'))===false)continue;
+            else $activeProduct = $products[array_search($item['product-id'], array_column($products, 'id'))];
+
+            $newItems[] = array(
+                "product-id"    =>  $activeProduct->id,
+                "quantity"      =>  $item['quantity'],
+                "unit-price"    =>  $activeProduct->price,
+                "total"         =>  (string) number_format(@($activeProduct->price * $item['quantity']), 2, ".", "")
+            );
+
+            $newTotal += $activeProduct->price * $item['quantity'];
+
+        }
+    
+        // Apply Recalculated Shopping Cart
+        $cartData['items'] = $newItems;
+        $cartData['total'] = (string) number_format($newTotal, 2, ".", "");
+
+        return $cartData;
     }
 
     private function loadDiscounts(){
