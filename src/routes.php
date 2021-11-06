@@ -12,8 +12,16 @@ $app->get('/order/{orderID}', function (Request $request, Response $response, $a
         $response = $response->withHeader('Content-Type', 'application/json');
     }else{
         $result = $discounts->processCart(json_decode($order,true));
-        $response = $response->withJson($result, 200);
+        $response = $response->withJson($result, (isset($result['discountError']))?500:200);
         $response = $response->withHeader('Content-Type', 'application/json');
      } 
      return $response;    
+});
+
+$app->post('/order', function(Request $request, Response $response, $args){  
+    $discounts = new Discounts();
+    $result = $discounts->processCart(json_decode($request->getBody(),true));
+    $response = $response->withJson($result, (isset($result['discountError']))?500:200);
+    $response = $response->withHeader('Content-Type', 'application/json');
+    return $response;    
 });
