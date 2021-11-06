@@ -43,7 +43,9 @@ class Discounts
             // Check if discount has expired (Presumably API will do this for us - but just incase!)
             if(strtotime($discount->expiration)<time())continue;
 
+            // Load Discount Type Class
             $discountModule = $this->newDiscountType($discount->type);
+
             if(!$discountModule)continue; // If discount module loading failed (doesn't exist?) - continue loop
             else{
                 // Apply the valid discount against the customers order.
@@ -90,18 +92,6 @@ class Discounts
         return $cartData;
     }
 
-    private function loadDiscounts(){
-        $this->discounts = json_decode(file_get_contents(__DIR__ . '/discounts.json'));
-    }
-
-    private function loadProducts(){
-        $this->products = json_decode(file_get_contents('https://raw.githubusercontent.com/teamleadercrm/coding-test/master/data/products.json'));
-    }
-
-    private function loadCustomers(){
-        $this->customers = json_decode(file_get_contents('https://raw.githubusercontent.com/teamleadercrm/coding-test/master/data/customers.json'));
-    }
-
     private function newDiscountType(string $type){
 
         // Check if the Discount Type class is available
@@ -116,4 +106,17 @@ class Discounts
 
         }else return false;        
     }
+    
+    private function loadDiscounts(){
+        $this->discounts = json_decode(file_get_contents(__DIR__ . '/discounts.json'));
+    }
+
+    private function loadProducts(){
+        $this->products = json_decode(file_get_contents('https://raw.githubusercontent.com/teamleadercrm/coding-test/master/data/products.json'));
+    }
+
+    private function loadCustomers(){
+        $this->customers = json_decode(file_get_contents('https://raw.githubusercontent.com/teamleadercrm/coding-test/master/data/customers.json'));
+    }
+
 }

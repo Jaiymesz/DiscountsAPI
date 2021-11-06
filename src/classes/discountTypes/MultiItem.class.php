@@ -22,16 +22,12 @@ class DiscountTypeMultiItem
             if($discount->ProductID !=-1 && $discount->ProductID != $activeProduct->id)continue;
 
             // All basic verification completed - lets add the item quantities!
-
-            // If we've got to this stage the discount is valid! Let's apply it.
             $totalValidItemsQty += $item['quantity'];
 
             // Lets check/update the cheapest product
             if($cheapestProduct==false)$cheapestProduct = $cheapestProduct=$activeProduct;
-            else {
-                if($cheapestProduct->price>$item['unit-price'])$cheapestProduct=$activeProduct;
-            }
-
+            else if($cheapestProduct->price>$item['unit-price'])$cheapestProduct=$activeProduct;
+            
             // Lets add data to eligible items 
             $eligibleItemsTotal += $item['total'];
             $eligibleItems[] = $activeProduct->id." - ".$activeProduct->description;
@@ -44,13 +40,13 @@ class DiscountTypeMultiItem
         if($discount->discountType=="%"){
             
             if($discount->discountApply=='CheapestItem'){
-                // Only apply the discount a single cheap item?
+                // Only apply the percentage discount a single cheap item?
                 $order['discount-amount'] += round($cheapestProduct->price * ($discount->discountValue/100),2);
                 $order['total'] -= round($cheapestProduct->price * ($discount->discountValue/100),2);
                 $order['discounts-applied'][] = $discount->name . " (Applied against ".$cheapestProduct->id." - ".$cheapestProduct->description.")";
 
             }else if($discount->discountApply=='AllEligibleItems'){
-                // Apply discount to all eligible items
+                // Apply percentage discount to all eligible items
                 $order['discount-amount'] += round($eligibleItemsTotal * ($discount->discountValue/100),2);
                 $order['total'] -= round($eligibleItemsTotal * ($discount->discountValue/100),2);
                 $order['discounts-applied'][] = $discount->name . " (Applied against ".implode(", ",$eligibleItems).")";
