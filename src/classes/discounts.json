@@ -27,7 +27,6 @@
       "CategoryID": 1,
       "ProductID": -1,
       "criteriaQty": 2,
-      "multiples": false,
       "discountType": "%",
       "discountValue": 20,
       "discountApply": "CheapestItem"
