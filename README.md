@@ -1,12 +1,12 @@
 # DiscountsAPI
 
-## Method 1 - GET :/orders/{orderID}
+## Method 1 - GET :/order/{orderID}
 
-This will pull the jSON Order live from TeamLeader CRM Environemnt on GitHub by providing the relevant Order ID number. 
+This will pull the JSON Order live from the TeamLeader Data Store on GitHub by providing the relevant Order ID number. 
 
 ## Method 2 - POST :/orders
 
-You can POST raw jSON in the body of a request for it to process the order provided.
+You can POST raw JSON in the body of a request for it to process the order provided.
 
 # Caveats
 
