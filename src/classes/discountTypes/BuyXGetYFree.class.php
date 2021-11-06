@@ -29,8 +29,8 @@ class DiscountTypeBuyXGetYFree
 
             // Do we allow multiples?
             if($discount->multiples==true){
-                $totalFreeItems = floor($item['quantity']/$discount->criteriaQty);
-            }else $totalFreeItems = 1;
+                $totalFreeItems = (floor($item['quantity']/$discount->criteriaQty)*$discount->totalFree);
+            }else $totalFreeItems = $discount->totalFree;
 
             $order['items'][] = array(
                 "product-id"  =>    $item['product-id'],
