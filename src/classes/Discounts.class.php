@@ -31,6 +31,8 @@ class Discounts
         // Check if any valid discounts are available
         if(count($this->discounts)<1)return array_merge($this->originalOrder,array("discountError"=>"No items were found in the order to apply a discount to."));
 
+        $this->newOrder['discountAmount'] = 0;
+        
         foreach ($this->discounts as $discount){
 
             // Check if discount has expired (Presumably API will do this for us - but just incase!)

@@ -33,7 +33,7 @@ class DiscountTypeBuyXGetYFree
                 "unit-price"  =>    "0.00",
                 "total"       =>    "0.00",
             );
-            
+            $order['discountAmount'] = $totalFreeItems*$activeProduct->price;
             $order['discountsApplied'][] = $discount->name." (Added $totalFreeItems Free of ".$activeProduct->description.")";
 
         }

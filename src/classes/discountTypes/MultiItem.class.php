@@ -45,19 +45,19 @@ class DiscountTypeMultiItem
             
             if($discount->discountApply=='CheapestItem'){
                 // Only apply the discount a single cheap item?
-                $order['discountAmount'] = round($cheapestProduct->price * ($discount->discountValue/100),2);
-                $order['total'] -= $order['discountAmount'];
+                $order['discountAmount'] += round($cheapestProduct->price * ($discount->discountValue/100),2);
+                $order['total'] -= round($cheapestProduct->price * ($discount->discountValue/100),2);
                 $order['discountsApplied'][] = $discount->name . " (Applied against ".$cheapestProduct->id." - ".$cheapestProduct->description.")";
 
             }else if($discount->discountApply=='AllEligibleItems'){
                 // Apply discount to all eligible items
-                $order['discountAmount'] = round($eligibleItemsTotal * ($discount->discountValue/100),2);
-                $order['total'] -= $order['discountAmount'];
+                $order['discountAmount'] += round($eligibleItemsTotal * ($discount->discountValue/100),2);
+                $order['total'] -= round($eligibleItemsTotal * ($discount->discountValue/100),2);
                 $order['discountsApplied'][] = $discount->name . " (Applied against ".implode(", ",$eligibleItems).")";
             }
         }else if($discount->discountType=="€"){
             // Apply a flat discount amount to whole order.
-            $order['discountAmount'] = $discount->discountValue;
+            $order['discountAmount'] += $discount->discountValue;
             $order['total'] -= $discount->discountValue;
             $order['discountsApplied'][] = $discount->name . " (Applied against ".$cheapestProduct->id." - ".$cheapestProduct->description.")";
         }
