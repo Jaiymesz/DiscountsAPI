@@ -10,7 +10,6 @@ $app->get('/order/{orderID}', function (Request $request, Response $response, $a
     if($order==false){
         $response = $response->withJson(array("error"=>"Unable to find order ".$args['orderID']), 404);
         $response = $response->withHeader('Content-Type', 'application/json');
-        return $response;
     }else{
         $result = $discounts->processCart(json_decode($order,true));
         $response = $response->withJson($result, 200);
