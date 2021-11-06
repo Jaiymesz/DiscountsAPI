@@ -4,7 +4,7 @@
 
 This will pull the JSON Order live from the TeamLeader Data Store on GitHub by providing the relevant Order ID number. 
 
-## Method 2 - POST :/orders
+## Method 2 - POST :/order
 
 You can POST raw JSON in the body of a request for it to process the order provided.
 
