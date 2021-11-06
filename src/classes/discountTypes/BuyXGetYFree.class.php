@@ -9,7 +9,7 @@ class DiscountTypeBuyXGetYFree
     
     public function applyDiscount(object $discount, array $order, array $products, object $customer){
         
-        // Has the customer purchased enough items?
+        // Let's loop through the customers cart to check for valid items.
         foreach($order['items'] as $item){
             
             // Can we find the product in the database?
