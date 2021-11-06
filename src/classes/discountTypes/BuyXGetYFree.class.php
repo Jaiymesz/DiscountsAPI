@@ -1,12 +1,7 @@
 <?php
 
 class DiscountTypeBuyXGetYFree
-{
-    
-    public function __construct(){
-    
-    }
-    
+{    
     public function applyDiscount(object $discount, array $order, array $products, object $customer){
         
         // Let's loop through the customers cart to check for valid items.

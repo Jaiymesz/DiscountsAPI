@@ -2,11 +2,6 @@
 
 class DiscountTypeCustomerTotal
 {
-    
-    public function __construct(){
-    
-    }
-    
     public function applyDiscount(object $discount, array $order, array $products, object $customer){
 
         // Has the customer spent above the threshold?
