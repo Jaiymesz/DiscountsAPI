@@ -31,7 +31,9 @@ class Discounts
         // Check if any valid discounts are available
         if(count($this->discounts)<1)return array_merge($this->originalOrder,array("discountError"=>"No items were found in the order to apply a discount to."));
 
-        $this->newOrder['discountAmount'] = 0;
+        // Define Discount Variables for Response
+        $this->newOrder['discount-amount'] = 0;
+        $this->newOrder['discounts-applied'] = array();
         
         foreach ($this->discounts as $discount){
 

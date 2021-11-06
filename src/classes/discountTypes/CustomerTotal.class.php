@@ -9,13 +9,13 @@ class DiscountTypeCustomerTotal
         else{
             // The customer meets the criteria for the discount!
             if($discount->discountType=="%"){
-                $order['discountAmount'] += round($order['total'] * ($discount->discountValue/100),2);
+                $order['discount-amount'] += round($order['total'] * ($discount->discountValue/100),2);
                 $order['total'] -= round($order['total'] * ($discount->discountValue/100),2);
-                $order['discountsApplied'][] = $discount->name;
+                $order['discounts-applied'][] = $discount->name;
             }else if($discount->discountType=="€"){
-                $order['discountAmount'] += $discount->discountValue;
+                $order['discount-amount'] += $discount->discountValue;
                 $order['total'] -= $discount->discountValue;
-                $order['discountsApplied'][] = $discount->name;
+                $order['discounts-applied'][] = $discount->name;
             }
             
         }
