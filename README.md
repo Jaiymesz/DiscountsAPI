@@ -187,6 +187,22 @@ New Discount types can be added in [/src/classes/discountTypes/](/src/classes/di
             "total": "19.50"
         }
     ],
+    "total": "19.50"
+}
+```
+#### Response
+```
+{
+    "id": "4",
+    "customer-id": "6",
+    "items": [
+        {
+            "product-id": "A101",
+            "quantity": "2",
+            "unit-price": "9.75",
+            "total": "19.50"
+        }
+    ],
     "total": "19.50",
     "discount-error": "Customer ID could not be located."
 }
