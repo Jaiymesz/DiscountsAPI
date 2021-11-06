@@ -22,14 +22,14 @@ class Discounts
         $this->newOrder = $cartData;
 
         // Check if customer ID exists in database.
-        if(array_search($this->originalOrder['customer-id'], array_column($this->customers, 'id'))===false)return array_merge($this->originalOrder,array("discountError"=>"Customer ID could not be located."));
+        if(array_search($this->originalOrder['customer-id'], array_column($this->customers, 'id'))===false)return array_merge($this->originalOrder,array("discount-error"=>"Customer ID could not be located."));
         else $this->customer = $this->customers[array_search($this->originalOrder['customer-id'], array_column($this->customers, 'id'))];
         
         // Check if the order has any items
-        if(count($this->originalOrder['items'])<1)return array_merge($this->originalOrder,array("discountError"=>"No valid discounts exist."));
+        if(count($this->originalOrder['items'])<1)return array_merge($this->originalOrder,array("discount-error"=>"No valid discounts exist."));
 
         // Check if any valid discounts are available
-        if(count($this->discounts)<1)return array_merge($this->originalOrder,array("discountError"=>"No items were found in the order to apply a discount to."));
+        if(count($this->discounts)<1)return array_merge($this->originalOrder,array("discount-error"=>"No items were found in the order to apply a discount to."));
 
         // Define Discount Variables for Response
         $this->newOrder['discount-amount'] = 0;
