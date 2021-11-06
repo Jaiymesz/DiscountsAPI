@@ -1,4 +1,7 @@
 <?php
+// Disable error reporting
+error_reporting(0);
+
 use Slim\Factory\AppFactory;
 
 require __DIR__ . '/../vendor/autoload.php';
