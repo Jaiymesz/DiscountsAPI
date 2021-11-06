@@ -23,3 +23,142 @@ You can POST raw JSON in the body of a request for it to process the order provi
 1. Better error handling
 2. Connect to a database instead of an API
 3. Authentication / Security Tokens
+
+## Examples
+### Order 1
+#### Request 
+```
+{
+  "id": "1",
+  "customer-id": "1",
+  "items": [
+    {
+      "product-id": "B102",
+      "quantity": "10",
+      "unit-price": "4.99",
+      "total": "49.90"
+    }
+  ],
+  "total": "49.90"
+}
+```
+#### Response
+```
+{
+    "id": "1",
+    "customer-id": "1",
+    "items": [
+        {
+            "product-id": "B102",
+            "quantity": "10",
+            "unit-price": "4.99",
+            "total": "49.90"
+        },
+        {
+            "product-id": "B102",
+            "quantity": "2",
+            "unit-price": "0.00",
+            "total": "0.00"
+        }
+    ],
+    "total": "49.90",
+    "discountAmount": 9.98,
+    "discountsApplied": [
+        "Buy 5 Switches get 1 Free (Added 2 Free of Press button)"
+    ]
+}
+```
+
+### Order 2
+#### Request
+```
+{
+  "id": "2",
+  "customer-id": "2",
+  "items": [
+    {
+      "product-id": "B102",
+      "quantity": "5",
+      "unit-price": "4.99",
+      "total": "24.95"
+    }
+  ],
+  "total": "24.95"
+}
+```
+#### Response
+```
+{
+    "id": "2",
+    "customer-id": "2",
+    "items": [
+        {
+            "product-id": "B102",
+            "quantity": "5",
+            "unit-price": "4.99",
+            "total": "24.95"
+        },
+        {
+            "product-id": "B102",
+            "quantity": "1",
+            "unit-price": "0.00",
+            "total": "0.00"
+        }
+    ],
+    "total": 22.45,
+    "discountAmount": 2.5,
+    "discountsApplied": [
+        "10% Customer Loyalty Discount",
+        "Buy 5 Switches get 1 Free (Added 1 Free of Press button)"
+    ]
+}
+```
+### Order 3
+#### Request
+```
+{
+  "id": "3",
+  "customer-id": "3",
+  "items": [
+    {
+      "product-id": "A101",
+      "quantity": "2",
+      "unit-price": "9.75",
+      "total": "19.50"
+    },
+    {
+      "product-id": "A102",
+      "quantity": "1",
+      "unit-price": "49.50",
+      "total": "49.50"
+    }
+  ],
+  "total": "69.00"
+}
+```
+#### Response
+```
+{
+    "id": "3",
+    "customer-id": "3",
+    "items": [
+        {
+            "product-id": "A101",
+            "quantity": "2",
+            "unit-price": "9.75",
+            "total": "19.50"
+        },
+        {
+            "product-id": "A102",
+            "quantity": "1",
+            "unit-price": "49.50",
+            "total": "49.50"
+        }
+    ],
+    "total": 67.05,
+    "discountAmount": 1.95,
+    "discountsApplied": [
+        "Buy 2+ Tools for 20% Off (Applied against A101 - Screwdriver)"
+    ]
+}
+```
