@@ -73,8 +73,8 @@ New Discount types can be added in [/src/classes/discountTypes/](/src/classes/di
         }
     ],
     "total": "49.90",
-    "discountAmount": 0,
-    "discountsApplied": [
+    "discount-amount": "0.00",
+    "discounts-applied": [
         "Buy 5 Switches get 1 Free (Added 2 Free of Press button)"
     ]
 }
@@ -116,9 +116,9 @@ New Discount types can be added in [/src/classes/discountTypes/](/src/classes/di
             "total": "0.00"
         }
     ],
-    "total": 22.45,
-    "discountAmount": 2.5,
-    "discountsApplied": [
+    "total": "22.45",
+    "discount-amount": "2.50",
+    "discounts-applied": [
         "10% Customer Loyalty Discount",
         "Buy 5 Switches get 1 Free (Added 1 Free of Press button)"
     ]
@@ -166,10 +166,28 @@ New Discount types can be added in [/src/classes/discountTypes/](/src/classes/di
             "total": "49.50"
         }
     ],
-    "total": 67.05,
-    "discountAmount": 1.95,
-    "discountsApplied": [
+    "total": "67.05",
+    "discount-amount": "1.95",
+    "discounts-applied": [
         "Buy 2+ Tools for 20% Off (Applied against A101 - Screwdriver)"
     ]
+}
+```
+### Invalid Customer ID (Error Handling)
+#### Request
+```
+{
+    "id": "4",
+    "customer-id": "6",
+    "items": [
+        {
+            "product-id": "A101",
+            "quantity": "2",
+            "unit-price": "9.75",
+            "total": "19.50"
+        }
+    ],
+    "total": "19.50",
+    "discount-error": "Customer ID could not be located."
 }
 ```
