@@ -72,7 +72,7 @@ New Discount types can be added in [/src/classes/discountTypes/](/src/classes/di
         }
     ],
     "total": "49.90",
-    "discountAmount": 9.98,
+    "discountAmount": 0,
     "discountsApplied": [
         "Buy 5 Switches get 1 Free (Added 2 Free of Press button)"
     ]
