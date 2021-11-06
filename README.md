@@ -12,9 +12,9 @@ You can POST raw JSON in the body of a request for it to process the order provi
 
 A file has been created in [/src/classes/discounts.json](/src/classes/discounts.json) where new discounts can be added at any time in the 3 types required for the excersise. 
 
-1. MultiItem = A discount (% or Flat) is applied when multiple items are purchased of any quantity.
-2. BuyXGetYFree = A free item is given when a certain number of products are purchased - optionally can be enabled/disabled in multiples.
-3. CustomerTotal = A discount (% or Flat) is applied if the customers total revenue meets a specified threshold. 
+1. **[MultiItem](/DiscountType-MultiItem.md)** = A discount (% or Flat) is applied when multiple items are purchased of any quantity.
+2. **[BuyXGetYFree](/DiscountType-BuyXGetYFree.md)** = A free item is given when a certain number of products are purchased - optionally can be enabled/disabled in multiples.
+3. **[CustomerTotal](/DiscountType-CustomerTotal.md)** = A discount (% or Flat) is applied if the customers total revenue meets a specified threshold. 
 
 New Discount types can be added in [/src/classes/discountTypes/](/src/classes/discountTypes/) when required ensuring the name formation remains as "TYPE.class.php"
 
