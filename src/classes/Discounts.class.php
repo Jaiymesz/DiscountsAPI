@@ -48,6 +48,10 @@ class Discounts
             }
         }
 
+        // Properly format Discount Amount and Total
+        $this->newOrder['total'] = (string) number_format($this->newOrder['total'] , 2, ".", "");
+        $this->newOrder['discount-amount'] = (string) number_format($this->newOrder['discount-amount'] , 2, ".", "");
+
         // Send back the order with applied discounts
         return $this->newOrder;
 
