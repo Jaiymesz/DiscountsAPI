@@ -33,6 +33,7 @@ New Discount types can be added in [/src/classes/discountTypes/](/src/classes/di
 1. Better error handling
 2. Connect to a database instead of an API
 3. Authentication / Security Tokens
+4. Adding discounted line item price totals.
 
 ## Examples
 ### Order 1
