@@ -3,5 +3,8 @@
         "slim/slim": "4.*",
         "slim/http": "^1.0",
         "slim/psr7":"^1.0"
+    },
+    "autoload": {
+            "classmap": ["src/classes"] 
     }
 }

@@ -1,6 +1,8 @@
 <?php
 
-class DiscountTypeBuyXGetYFree
+namespace classes\Discounts;
+
+class DiscountTypeBuyXGetYFree implements DiscountType
 {    
     public function applyDiscount(object $discount, array $order, array $products, object $customer){
         

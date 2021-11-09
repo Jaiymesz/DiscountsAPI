@@ -1,6 +1,8 @@
 <?php
 
-class DiscountTypeMultiItem
+namespace classes\Discounts;
+
+class DiscountTypeMultiItem implements DiscountType
 {    
     public function applyDiscount(object $discount, array $order, array $products, object $customer){
         

@@ -85,6 +85,18 @@ class ComposerStaticInit5b66596b911e7691d1d53b6d96b60f36
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
         'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
+        'classes\\Discounts\\Cart' => __DIR__ . '/../..' . '/src/classes/discounts/cart.class.php',
+        'classes\\Discounts\\CartInterface' => __DIR__ . '/../..' . '/src/classes/discounts/cart.class.php',
+        'classes\\Discounts\\Customers' => __DIR__ . '/../..' . '/src/classes/discounts/customers.class.php',
+        'classes\\Discounts\\CustomersInterface' => __DIR__ . '/../..' . '/src/classes/discounts/customers.class.php',
+        'classes\\Discounts\\DiscountInterface' => __DIR__ . '/../..' . '/src/classes/discounts/discounts.class.php',
+        'classes\\Discounts\\DiscountProcess' => __DIR__ . '/../..' . '/src/classes/discounts/discounts.class.php',
+        'classes\\Discounts\\DiscountType' => __DIR__ . '/../..' . '/src/classes/discounts/discountType.class.php',
+        'classes\\Discounts\\DiscountTypeBuyXGetYFree' => __DIR__ . '/../..' . '/src/classes/discounts/discountTypes/BuyXGetYFree.class.php',
+        'classes\\Discounts\\DiscountTypeCustomerTotal' => __DIR__ . '/../..' . '/src/classes/discounts/discountTypes/CustomerTotal.class.php',
+        'classes\\Discounts\\DiscountTypeMultiItem' => __DIR__ . '/../..' . '/src/classes/discounts/discountTypes/MultiItem.class.php',
+        'classes\\Discounts\\Products' => __DIR__ . '/../..' . '/src/classes/discounts/products.class.php',
+        'classes\\Discounts\\ProductsInterface' => __DIR__ . '/../..' . '/src/classes/discounts/products.class.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

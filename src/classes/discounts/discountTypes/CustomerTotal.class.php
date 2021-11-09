@@ -1,6 +1,8 @@
 <?php
 
-class DiscountTypeCustomerTotal
+namespace classes\Discounts;
+
+class DiscountTypeCustomerTotal implements DiscountType
 {
     public function applyDiscount(object $discount, array $order, array $products, object $customer){
 
