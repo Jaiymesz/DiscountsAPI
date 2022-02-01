@@ -2,7 +2,7 @@
 
 ## Method 1 - GET :/order/{orderID}
 
-This will pull the JSON Order live from the TeamLeader Data Store on GitHub by providing the relevant Order ID number. 
+This will pull the JSON Order live from the Data Store on GitHub by providing the relevant Order ID number. 
 
 ## Method 2 - POST :/order
 
